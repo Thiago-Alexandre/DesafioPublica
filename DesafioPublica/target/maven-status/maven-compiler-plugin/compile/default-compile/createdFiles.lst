@@ -1,0 +1,16 @@
+model\JogadorDAO.class
+model\JogoFilter.class
+util\Autorizador.class
+model\Jogo.class
+model\TemporadaPaginator.class
+model\Validacao.class
+model\TemporadaDAO.class
+model\TemporadaFilter.class
+util\JPAConnectionFactory.class
+controller\BeanTemporada.class
+controller\BeanJogador.class
+model\JogoDAO.class
+model\JogoPaginator.class
+model\Temporada.class
+controller\BeanJogo.class
+model\Jogador.class

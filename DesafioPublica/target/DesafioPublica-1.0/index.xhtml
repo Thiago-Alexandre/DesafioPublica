@@ -1,0 +1,67 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/templates/basicoTemplate.xhtml"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+ 
+    <ui:define name="conteudo">
+        <section>
+            <h:form id="formDetalhesJogador">
+                <h2>Informações do Jogador:</h2>
+                <h:inputHidden value="#{beanJogador.jogador.id}"/>
+                <h:panelGrid columns="1">
+                    <p:outputLabel value="Nome:" for="nome"/>
+                    <p:inputText id="nome" readonly="true" value="#{beanJogador.jogador.nome}"/>
+                    <p:outputLabel value="Quantidade de Quebra de Recorde de Pontuação Mínima:" for="qtdQuebraRecordeMin"/>
+                    <p:inputText id="qtdQuebraRecordeMin" readonly="true" value="#{beanJogador.jogador.qtdQuebraRecordeMin}"/>
+                    <p:outputLabel value="Quantidade de Quebra de Recorde de Pontuação Máxima:" for="qtdQuebraRecordeMax"/>
+                    <p:inputText id="qtdQuebraRecordeMax" readonly="true" value="#{beanJogador.jogador.qtdQuebraRecordeMax}"/>
+                    <p:outputLabel value="Pontuação Mínima obtida:" for="minimo"/>
+                    <p:inputText id="minimo" readonly="true" value="#{beanJogador.jogador.minimo}"/>
+                    <p:outputLabel value="Pontuação Máxima obtida:" for="maximo"/>
+                    <p:inputText id="maximo" readonly="true" value="#{beanJogador.jogador.maximo}"/>
+                </h:panelGrid>
+            </h:form>    
+        </section>
+        <section>
+            <h:form id="formFiltroJogo">
+                <h2>Filtros:</h2>
+                <h:panelGrid columns="1">
+                    <p:outputLabel for="temporada" value="Temporada:" />
+                    <p:selectOneMenu value="#{beanJogo.idTemporada}" id="temporada" filter="true" filterMatchMode="startsWith">
+                        <f:selectItem itemLabel="Selecione uma temporada" itemValue="#{0}" />
+                        <f:selectItems value="#{beanTemporada.todasTemporadas()}" var="selecionada" itemLabel="#{selecionada.nome}" itemValue="#{selecionada.id}" />
+                    </p:selectOneMenu>
+                    <p:commandButton value="Pesquisar" action="#{beanJogo.pesquisar}" process=":formFiltroJogo" update=":formListaJogo :formMessage"/>
+                </h:panelGrid>
+            </h:form>    
+        </section>
+        <section>
+            <h:form id="formListaJogo">
+                <h2>Jogos do Jogador:</h2>
+                <p:dataTable id="jogos" var="x" value="#{beanJogo.jogos}" rows="10" lazy="true" 
+                             paginator="true" emptyMessage="Nenhum Jogo Encontrado!">
+                    <p:column headerText="Data">
+                        <h:outputText value="#{x.data}" />
+                    </p:column>
+                    <p:column headerText="Descrição">
+                        <h:outputText value="#{x.descricao}" />
+                    </p:column>
+                    <p:column headerText="Placar do Jogo">
+                        <h:outputText value="#{x.placar}" />
+                    </p:column>
+                    <p:column headerText="Temporada">
+                        <h:outputText value="#{x.temporada.nome}" />
+                    </p:column>
+                    <p:column headerText="Mínimo da Temporada">
+                        <h:outputText value="#{x.temporada.minimo}" />
+                    </p:column>
+                    <p:column headerText="Máximo da Temporada">
+                        <h:outputText value="#{x.temporada.maximo}" />
+                    </p:column>
+                </p:dataTable>
+            </h:form>    
+        </section>
+    </ui:define>
+</ui:composition>
