@@ -1,5 +1,5 @@
 # DesafioPublica
-##Projeto referente a questão prática do desafio Pública.
+## Projeto referente a questão prática do desafio Pública.
 Se trata de um sistema de acompanhamento de resultados de pontuações em jogos de basquete. Foi desenvolvido utilizando:
 
 * Linguagem Java (JDK 1.8);
@@ -15,16 +15,16 @@ Se trata de um sistema de acompanhamento de resultados de pontuações em jogos 
 
 Para executar a aplicação, deverá ser adicionado o arquivo .war (encontrado em \DesafioPublica\target\DesafioPublica-1.0.war) em um servidor (como o Tomcat). Como este projeto foi desenvolvido localmente, será necessário possuir o banco de dados local e configurado conforme o arquivo persistence.xml. As configurações utilizadas no desenvolvimento deste projeto são:
 
-´´´
+```
       <property name="javax.persistence.jdbc.url" value="jdbc:mariadb://localhost:3306/desafio_publica"/> //URL do banco de dados, com o nome do banco criado
       <property name="javax.persistence.jdbc.user" value="root"/> //Usuário configurado para o banco
       <property name="javax.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver"/> //driver de conexão com o banco
       <property name="javax.persistence.jdbc.password" value="thi123"/> //Senha configurada para o banco
-´´´
+```
 É possível alterar e até configurar uma nova unidade de persistência para conexão através do arquivo persistence.xml.
 Para que o JPA possa persistir os dados, é necessário possuir o banco criado. Além do mais, o JPA foi configurado para não alterar a estrutura do banco de dados, permitindo assim ter um maior controle sobre o banco e impedir a criação de tabelas e relacionamentos desnecessários. Portanto, segue a estrutura para a criação do banco de dados, também disponível no arquivo Desafio_Publica.sql:
 
-´´´
+```
 DROP DATABASE if EXISTS desafio_publica;
 CREATE DATABASE desafio_publica CHARSET latin1 COLLATE latin1_general_cs;
 USE desafio_publica;
@@ -57,5 +57,5 @@ CREATE TABLE jogo (
 	temporada_jogo INTEGER NOT NULL,
 	FOREIGN KEY (temporada_jogo) REFERENCES temporada(id_temporada) ON DELETE CASCADE
 );
-´´´
+```
 Caso exista o interesse de testar a aplicação sem configurar localmente, é possível disponibilizar um link seguro, utilizando a ferramenta Ngrok, para o acesso do sistema rodando diretamente no seu ambiente de desenvolvimento. Para mais detalhes, envie um e-mail solicitando essa abordagem para: thiago.alexandre.new@gmail.com
