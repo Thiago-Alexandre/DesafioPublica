@@ -156,16 +156,18 @@ public class JogoDAO implements Serializable{
      */
     private void atualizarRecordesJogador(Jogo jogo){
         Jogador jogador = jogo.getTemporada().getJogador();
-        List<Jogo> lista = buscarJogos(jogador);
-        JogadorDAO jogadorDAO = new JogadorDAO();
-        if (lista.size() > 1) {
-            Boolean novoRecorde = jogador.atualizarRecordes(jogo);
-            if (novoRecorde) {
+        if (jogador != null) {
+            List<Jogo> lista = buscarJogos(jogador);
+            JogadorDAO jogadorDAO = new JogadorDAO();
+            if (lista.size() > 1) {
+                Boolean novoRecorde = jogador.atualizarRecordes(jogo);
+                if (novoRecorde) {
+                    jogadorDAO.atualizar(jogador);
+                }   
+            } else{
+                jogador.primeiroJogo(jogo);
                 jogadorDAO.atualizar(jogador);
-            }   
-        } else{
-            jogador.primeiroJogo(jogo);
-            jogadorDAO.atualizar(jogador);
+            }    
         }
     }
     
@@ -390,7 +392,7 @@ public class JogoDAO implements Serializable{
      * </p>
      * @author Thiago Alexandre Buerger
      * @version 1.0
-     * @param temporada Temporada: Temporada em que se deseja obter os jogos no banco.
+     * @param jogador Jogador: jogador em que se deseja obter os jogos no banco.
      * @return Lista Jogo: retorna uma lista de objetos do tipo Jogo referentes ao jogador caso for encontrado
      * ou uma lista vazia caso não for encontrado nenhum jogo do jogador informado
      */

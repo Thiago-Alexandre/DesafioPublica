@@ -25,7 +25,7 @@ CREATE TABLE temporada(
 CREATE TABLE jogo (
 	id_jogo INTEGER PRIMARY KEY AUTO_INCREMENT,
 	data_jogo DATETIME NOT NULL,
-	descricao_jogo VARCHAR(100) NOT NULL,
+	descricao_jogo VARCHAR(250) NOT NULL,
 	placar_jogo INTEGER NOT NULL,
 	temporada_jogo INTEGER NOT NULL,
 	FOREIGN KEY (temporada_jogo) REFERENCES temporada(id_temporada) ON DELETE CASCADE

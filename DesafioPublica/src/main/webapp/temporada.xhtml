@@ -6,35 +6,35 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
  
     <ui:define name="conteudo">
-        <section>
+        <section class="modulo">
             <h:form id="formTemporada">
                 <h2>Temporada:</h2>
-                <h:panelGrid columns="1">
+                <p:panelGrid columns="2" layout="grid">
                     <p:outputLabel value="Nome:" for="nomeTemporada"/>
-                    <p:inputText id="nomeTemporada" maxlength="30" value="#{beanTemporada.nome}"/>
+                    <p:inputText id="nomeTemporada" class="campo" maxlength="30" value="#{beanTemporada.nome}"/>
                     <p:outputLabel value="Pontuação Mínima obtida na Temporada:" for="minimo"/>
-                    <p:inputText id="minimo" readonly="true" value="#{beanTemporada.temporada.minimo}"/>
+                    <p:inputText id="minimo" class="campo" readonly="true" value="#{beanTemporada.temporada.minimo}"/>
                     <p:outputLabel value="Pontuação Máxima obtida na Temporada:" for="maximo"/>
-                    <p:inputText id="maximo" readonly="true" value="#{beanTemporada.temporada.maximo}"/>
+                    <p:inputText id="maximo" class="campo" readonly="true" value="#{beanTemporada.temporada.maximo}"/>
                     <p:commandButton value="Salvar" action="#{beanTemporada.salvar}" process=":formTemporada" update=":formListaTemporada :formMessage"/>
                     <p:commandButton value="Novo" action="#{beanTemporada.novo}" update=":formTemporada :formMessage"/>
-                </h:panelGrid>
+                </p:panelGrid>
             </h:form>
         </section>
-        <section>
+        <section class="modulo">
             <h:form id="formFiltroTemporada">
                 <h2>Filtros:</h2>
-                <h:panelGrid columns="1">
+                <p:panelGrid columns="3" layout="grid">
                     <p:outputLabel value="Nome:" for="nomeConsulta"/>
-                    <p:inputText id="nomeConsulta" maxlength="30" value="#{beanTemporada.filtro.nome}"/>
+                    <p:inputText id="nomeConsulta" class="campo" maxlength="30" value="#{beanTemporada.filtro.nome}"/>
                     <p:commandButton value="Pesquisar" action="#{beanTemporada.pesquisar}" process=":formFiltroTemporada" update=":formListaTemporada :formMessage"/>
-                </h:panelGrid>
+                </p:panelGrid>
             </h:form>    
         </section>
-        <section>
+        <section class="modulo">
             <h:form id="formListaTemporada">
                 <h2>Temporadas Cadastradas:</h2>
-                <p:dataTable id="temporadas" var="x" value="#{beanTemporada.temporadas}" rows="2" lazy="true" 
+                <p:dataTable id="temporadas" class="tabela" var="x" value="#{beanTemporada.temporadas}" rows="2" lazy="true" 
                              paginator="true" emptyMessage="Nenhuma Temporada Encontrada!">
                     <p:column headerText="Nome">
                         <h:outputText value="#{x.nome}" />

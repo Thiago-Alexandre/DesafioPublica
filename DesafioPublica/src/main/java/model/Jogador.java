@@ -56,7 +56,7 @@ public class Jogador implements Serializable{
     @Column(name="nome_jogador")
     @NotNull()
     @NotEmpty()
-    @Size(min=1, max=50)
+    @Size(max=50)
     private String nome;
     
     /**
@@ -132,7 +132,7 @@ public class Jogador implements Serializable{
     @Column(name="login_jogador")
     @NotNull()
     @NotEmpty()
-    @Size(min=1, max=30)
+    @Size(max=30)
     private String login;
     
     /**
@@ -148,7 +148,7 @@ public class Jogador implements Serializable{
     @Column(name="senha_jogador")
     @NotNull()
     @NotEmpty()
-    @Size(min=1, max=30)
+    @Size(max=30)
     private String senha;
 
     /** 
@@ -274,22 +274,18 @@ public class Jogador implements Serializable{
      * @version 1.0
      * @param jogo Jogo: novo jogo realizado pelo jogador
      * @return Boolean: retorno um valor booleano, onde:
-     * <p>
-     *      <ul>
-     *           <li>valor true significa que houve alteração em alguma pontuação (mínima ou máxima) e deverá ser realizado a atualização do jogador</li>
-     *           <li>valor false significa que não houve alteração em nenhuma pontuação e não será necessária a atualização do jogador</li>
-     *      </ul>
-     * </p>
+     * <ul>
+     *      <li>valor true significa que houve alteração em alguma pontuação (mínima ou máxima) e deverá ser realizado a atualização do jogador</li>
+     *      <li>valor false significa que não houve alteração em nenhuma pontuação e não será necessária a atualização do jogador</li>
+     * </ul>
      */
     public Boolean atualizarRecordes(Jogo jogo){
         if (jogo.getPlacar() < minimo) {
-            System.out.println("É menor");
             minimo = jogo.getPlacar();
             qtdQuebraRecordeMin++;
             return true;
         }
         if (jogo.getPlacar() > maximo) {
-            System.out.println("É maior");
             maximo = jogo.getPlacar();
             qtdQuebraRecordeMax++;
             return true;

@@ -270,46 +270,4 @@ public class JogadorDAO implements Serializable{
         }
         return retorno;
     }
-    
-    /**
-     * Método para realizar a exclusão de dados do jogador no banco
-     * <p>
-     * Deverá ser realizada a validação dos dados do Jogador e, 
-     * caso não for encontrado erros (validacao.getErros().isEmpty()), 
-     * o jogador poderá ser removido. Senão, será impedido de realizar a exclusão.<br>
-     * EntityManager em = JPAConnectionFactory.getEntityManager(): objeto de conexão com o banco.<br>
-     * A exclusão (em.remove()) deverá ser realizada após o início de uma transação (em.getTransaction().begin()).
-     * Para que a exclusão possa ser efetuada, é necessário buscar o objeto (em.merge()) antes.
-     * Esse método só será efetuado no banco após o comando de commit (em.getTransaction().commit()).
-     * A conexão criada deverá ser fechada (em.close()).
-     * </p>
-     * @author Thiago Alexandre Buerger
-     * @version 1.0
-     * @param jogador Jogador: objeto do tipo Jogador contendo os dados para a exclusão.
-     * @return String: mensagem de sucesso ao excluir ou de falha caso algum erro seja encontrado.
-     */
-    public String remover(Jogador jogador) {
-        String mensagem = "";
-        Validacao validacao = new Validacao(Jogador.class,jogador);
-        if (validacao.getErros().isEmpty()){
-            try{
-                EntityManager em = JPAConnectionFactory.getEntityManager();
-                try{
-                    em.getTransaction().begin();
-                    em.remove(em.merge(jogador));
-                    em.getTransaction().commit();
-                    mensagem = "Jogador removido com sucesso!";    
-                } catch(Exception e){
-                    mensagem = "Erro ao remover o jogador! " + e;
-                } finally{
-                    em.close();
-                }
-            } catch(Exception e){
-                mensagem = "Erro na conexão com o banco! " + e;
-            }    
-        } else{
-            mensagem = "Jogador Inválido!";
-        }
-        return mensagem;
-    }
 }

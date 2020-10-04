@@ -1,0 +1,20 @@
+cmd.exe
+/X
+/C
+""C:\Program Files\Java\jdk1.8.0_261\jre\..\bin\javadoc.exe" @options @argfile"
+C:\Users\Thiago\Documents\Desafio Pública\DesafioPublica\target\site\apidocs\allclasses-frame.html = 1601840338981
+C:\Users\Thiago\Documents\Desafio Pública\DesafioPublica\target\site\apidocs\allclasses-noframe.html = 1601840338988
+C:\Users\Thiago\Documents\Desafio Pública\DesafioPublica\target\site\apidocs\argfile = 1601840336353
+C:\Users\Thiago\Documents\Desafio Pública\DesafioPublica\target\site\apidocs\constant-values.html = 1601840338478
+C:\Users\Thiago\Documents\Desafio Pública\DesafioPublica\target\site\apidocs\deprecated-list.html = 1601840338964
+C:\Users\Thiago\Documents\Desafio Pública\DesafioPublica\target\site\apidocs\help-doc.html = 1601840339026
+C:\Users\Thiago\Documents\Desafio Pública\DesafioPublica\target\site\apidocs\index-all.html = 1601840338944
+C:\Users\Thiago\Documents\Desafio Pública\DesafioPublica\target\site\apidocs\index.html = 1601840338996
+C:\Users\Thiago\Documents\Desafio Pública\DesafioPublica\target\site\apidocs\options = 1601840336351
+C:\Users\Thiago\Documents\Desafio Pública\DesafioPublica\target\site\apidocs\overview-frame.html = 1601840338294
+C:\Users\Thiago\Documents\Desafio Pública\DesafioPublica\target\site\apidocs\overview-summary.html = 1601840339008
+C:\Users\Thiago\Documents\Desafio Pública\DesafioPublica\target\site\apidocs\overview-tree.html = 1601840338917
+C:\Users\Thiago\Documents\Desafio Pública\DesafioPublica\target\site\apidocs\package-list = 1601840338291
+C:\Users\Thiago\Documents\Desafio Pública\DesafioPublica\target\site\apidocs\script.js = 1601840339050
+C:\Users\Thiago\Documents\Desafio Pública\DesafioPublica\target\site\apidocs\serialized-form.html = 1601840338513
+C:\Users\Thiago\Documents\Desafio Pública\DesafioPublica\target\site\apidocs\stylesheet.css = 1601840339043

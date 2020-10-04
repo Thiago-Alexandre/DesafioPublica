@@ -4,41 +4,44 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui">
     
-    <h:head />
+    <h:head>
+        <link rel="StyleSheet" type="text/css" href="css/normalize.css" media="screen" ></link>
+        <link rel="StyleSheet" type="text/css" href="css/base.css" media="screen" ></link>
+    </h:head >
     <h:body>
         <header id="cabecalho">
             <h1>Desafio Pública</h1>
         </header>
         <main id="principal">
-            <section>
+            <section class="modulo">
                 <h:form id="formMessage" rendered="#{mensagem != null}">
                     <p:outputLabel value="#{mensagem}"/>
                 </h:form>
             </section>
-            <section>
+            <section class="modulo">
                 <h2>Login:</h2>
                 <h:form id="formLogin">
-                    <h:panelGrid columns="1">
+                    <p:panelGrid columns="2" layout="grid">
                         <p:outputLabel value="Login:" for="login"/>
-                        <p:inputText id="login" maxlength="30" placeholder="Informe seu login" value="#{beanJogador.login}"/>
+                        <p:inputText id="login" class="campo" maxlength="30" placeholder="Informe seu login" value="#{beanJogador.login}"/>
                         <p:outputLabel value="Senha:" for="senha"/>
-                        <p:password id="senha" maxlength="30" placeholder="Informe sua senha" value="#{beanJogador.senha}"/>
+                        <p:password id="senha" class="campo" maxlength="30" placeholder="Informe sua senha" value="#{beanJogador.senha}"/>
                         <p:commandButton value="Entrar" action="#{beanJogador.efetuarLogin}" process=":formLogin" update="formMessage"/>
-                    </h:panelGrid>
+                    </p:panelGrid>
                 </h:form>    
             </section>
-            <section>
+            <section class="modulo">
                 <h2>Não possui uma conta?</h2>
                 <h:form id="formNovo">
-                    <h:panelGrid columns="1">
+                    <p:panelGrid columns="2" layout="grid">
                         <p:outputLabel value="Nome:" for="novoNome"/>
-                        <p:inputText id="novoNome" maxlength="50" placeholder="Informe seu nome" value="#{beanJogador.nome}"/>
+                        <p:inputText id="novoNome" class="campo" maxlength="50" placeholder="Informe seu nome" value="#{beanJogador.nome}"/>
                         <p:outputLabel value="Login:" for="novoLogin"/>
-                        <p:inputText id="novoLogin" maxlength="30" placeholder="Informe um login" value="#{beanJogador.login}"/>
+                        <p:inputText id="novoLogin" class="campo" maxlength="30" placeholder="Informe um login" value="#{beanJogador.login}"/>
                         <p:outputLabel value="Senha:" for="novaSenha"/>
-                        <p:password id="novaSenha" maxlength="30" placeholder="Informe uma senha" feedback="true" value="#{beanJogador.senha}"/>
+                        <p:password id="novaSenha" class="campo" maxlength="30" placeholder="Informe uma senha" feedback="true" value="#{beanJogador.senha}"/>
                         <p:commandButton value="Cadastrar" action="#{beanJogador.cadastrar}" process=":formNovo" update="formMessage"/>
-                    </h:panelGrid>
+                    </p:panelGrid>
                 </h:form>    
             </section>
         </main>

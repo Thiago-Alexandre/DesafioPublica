@@ -6,41 +6,41 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
  
     <ui:define name="conteudo">
-        <section>
+        <section class="modulo">
             <h:form id="formDetalhesJogador">
                 <h2>Informações do Jogador:</h2>
                 <h:inputHidden value="#{beanJogador.jogador.id}"/>
-                <h:panelGrid columns="1">
+                <p:panelGrid columns="2" layout="grid">
                     <p:outputLabel value="Nome:" for="nome"/>
-                    <p:inputText id="nome" readonly="true" value="#{beanJogador.jogador.nome}"/>
+                    <p:inputText id="nome" readonly="true" class="campo" value="#{beanJogador.jogador.nome}"/>
                     <p:outputLabel value="Quantidade de Quebra de Recorde de Pontuação Mínima:" for="qtdQuebraRecordeMin"/>
-                    <p:inputText id="qtdQuebraRecordeMin" readonly="true" value="#{beanJogador.jogador.qtdQuebraRecordeMin}"/>
+                    <p:inputText id="qtdQuebraRecordeMin" class="campo" readonly="true" value="#{beanJogador.jogador.qtdQuebraRecordeMin}"/>
                     <p:outputLabel value="Quantidade de Quebra de Recorde de Pontuação Máxima:" for="qtdQuebraRecordeMax"/>
-                    <p:inputText id="qtdQuebraRecordeMax" readonly="true" value="#{beanJogador.jogador.qtdQuebraRecordeMax}"/>
+                    <p:inputText id="qtdQuebraRecordeMax" class="campo" readonly="true" value="#{beanJogador.jogador.qtdQuebraRecordeMax}"/>
                     <p:outputLabel value="Pontuação Mínima obtida:" for="minimo"/>
-                    <p:inputText id="minimo" readonly="true" value="#{beanJogador.jogador.minimo}"/>
+                    <p:inputText id="minimo" readonly="true" class="campo" value="#{beanJogador.jogador.minimo}"/>
                     <p:outputLabel value="Pontuação Máxima obtida:" for="maximo"/>
-                    <p:inputText id="maximo" readonly="true" value="#{beanJogador.jogador.maximo}"/>
-                </h:panelGrid>
+                    <p:inputText id="maximo" readonly="true" class="campo" value="#{beanJogador.jogador.maximo}"/>
+                </p:panelGrid>
             </h:form>    
         </section>
-        <section>
+        <section class="modulo">
             <h:form id="formFiltroJogo">
                 <h2>Filtros:</h2>
-                <h:panelGrid columns="1">
+                <p:panelGrid columns="3" layout="grid">
                     <p:outputLabel for="temporada" value="Temporada:" />
-                    <p:selectOneMenu value="#{beanJogo.idTemporada}" id="temporada" filter="true" filterMatchMode="startsWith">
+                    <p:selectOneMenu value="#{beanJogo.idTemporada}" id="temporada" class="campo" filter="true" filterMatchMode="startsWith">
                         <f:selectItem itemLabel="Selecione uma temporada" itemValue="#{0}" />
                         <f:selectItems value="#{beanTemporada.todasTemporadas()}" var="selecionada" itemLabel="#{selecionada.nome}" itemValue="#{selecionada.id}" />
                     </p:selectOneMenu>
                     <p:commandButton value="Pesquisar" action="#{beanJogo.pesquisar}" process=":formFiltroJogo" update=":formListaJogo :formMessage"/>
-                </h:panelGrid>
+                </p:panelGrid>
             </h:form>    
         </section>
-        <section>
+        <section class="modulo">
             <h:form id="formListaJogo">
                 <h2>Jogos do Jogador:</h2>
-                <p:dataTable id="jogos" var="x" value="#{beanJogo.jogos}" rows="10" lazy="true" 
+                <p:dataTable id="jogos" var="x" class="tabela" value="#{beanJogo.jogos}" rows="10" lazy="true" 
                              paginator="true" emptyMessage="Nenhum Jogo Encontrado!">
                     <p:column headerText="Data">
                         <h:outputText value="#{x.data}" />

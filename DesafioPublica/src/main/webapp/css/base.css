@@ -1,0 +1,85 @@
+body{
+    font-family: "Lucida Sans", sans-serif;
+    background-color: #000000;
+    padding: 0px;
+    color: #000000;
+    font-size: 18px;
+}
+
+header{
+    background-color: #b34700;
+    padding: 10px;
+    text-align: center;
+}
+
+footer{
+    background-color: #b34700;
+    padding: 10px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.modulo{
+    background-color: #ff6600;
+    padding: 10px;
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+.ui-g{
+    background-color: #ff6600;
+    color: #000000;
+}
+
+.ui-widget-content{
+    border-top-width: 0px;
+    border-bottom-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+}
+
+nav{
+    background-color: #ff6600;
+    padding: 10px;
+    text-align: left;
+}
+
+.tabela{
+    width: 100%;
+    margin:0 auto;
+    border:0;
+    box-shadow: 0 5px 30px #000000;
+    border-spacing: 0;
+    background-color: #f2f2f2;
+    color: #000000;
+}
+
+.tabela th{
+    font-weight: bold;
+    padding:5px 10px;
+}
+
+.tabela tr td{
+    padding:5px 10px;
+    text-align: center;
+}
+
+.tabela tr:nth-child(odd){
+    background-color: #e6e6e6;
+}
+
+.tabela tr:hover td{
+    background-color: #cccccc;
+}
+
+form{
+    margin-left: 5%;
+    margin-right: 5%;
+    text-align: left;
+    padding: 10px;
+}
+
+.campo{
+    width: 80%;
+}

@@ -5,26 +5,26 @@
                 template="/templates/basicoTemplate.xhtml">
  
     <ui:define name="conteudo">
-        <section>
+        <section class="modulo">
             <h:form id="formDetalhesJogador">
                 <h2>Atualizar Jogador:</h2>
-                <h:panelGrid columns="1">
+                <p:panelGrid columns="2" layout="grid">
                     <p:outputLabel value="Nome:" for="novoNome"/>
-                    <p:inputText id="novoNome" maxlength="50" value="#{beanJogador.nome}"/>
+                    <p:inputText id="novoNome" class="campo" maxlength="50" value="#{beanJogador.nome}"/>
                     <p:outputLabel value="Login:" for="novoLogin"/>
-                    <p:inputText id="novoLogin" maxlength="30" value="#{beanJogador.login}"/>
+                    <p:inputText id="novoLogin" class="campo" maxlength="30" value="#{beanJogador.login}"/>
                     <p:commandButton value="Atualizar" action="#{beanJogador.salvar}" process=":formDetalhesJogador" update="formMessage"/>
-                </h:panelGrid>
+                </p:panelGrid>
             </h:form>    
         </section>
-        <section>
+        <section class="modulo">
             <h:form id="formNovaSenha">
                 <h2>Alterar Senha:</h2>
-                <h:panelGrid columns="1">
+                <p:panelGrid columns="2" layout="grid">
                     <p:outputLabel value="Senha:" for="novaSenha"/>
-                    <p:password id="novaSenha" maxlength="30" feedback="true" value="#{beanJogador.senha}"/>
+                    <p:password id="novaSenha" class="campo" maxlength="30" feedback="true" value="#{beanJogador.senha}"/>
                     <p:commandButton value="Alterar" action="#{beanJogador.alterarSenha}" process=":formNovaSenha" update="formMessage"/>
-                </h:panelGrid>
+                </p:panelGrid>
             </h:form>    
         </section>
     </ui:define>

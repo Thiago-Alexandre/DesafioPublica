@@ -14,6 +14,7 @@ import javax.persistence.Temporal;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Range;
 
 /**
@@ -70,7 +71,7 @@ public class Jogo implements Serializable, Comparable<Jogo>{
      * Descrição do jogo
      * <p>
      * Anotação @Column: fornece a ligação entre o atributo "descricao" e o campo "descricao_jogo" da entidade definida no banco.<br>
-     * Anotação @NotNull: impede que um valor nulo seja definido ao campo.<br>
+     * Anotação @NotNull e @NotEmpty: impedem que um valor nulo ou vazio seja definido ao campo.<br>
      * Anotação @Size: impede que uma String maior que a definida no banco seja informada.
      * </p>
      * @author Thiago Alexandre Buerger
@@ -78,7 +79,8 @@ public class Jogo implements Serializable, Comparable<Jogo>{
      */
     @Column(name="descricao_jogo")
     @NotNull()
-    @Size(min=1, max=100)
+    @NotEmpty()
+    @Size(max=250)
     private String descricao;
     
     /**
@@ -92,7 +94,7 @@ public class Jogo implements Serializable, Comparable<Jogo>{
      * @version 1.0
      */
     @Column(name="placar_jogo")
-    @NotNull(message="O placar do jogo não poderá ser nulo!")
+    @NotNull()
     @Range(min=0, max=1000)
     private Integer placar;
     
@@ -191,13 +193,11 @@ public class Jogo implements Serializable, Comparable<Jogo>{
      * @version 1.0
      * @param j Jogo: objeto Jogo que será comparado
      * @return int: valor de retorno, onde:
-     * <p>
-    *      <ul>
-    *           <li>valor positivo significa que o jogo possui mais pontuação que o jogo comparado</li>
-    *           <li>valor negativo significa que o jogo possui menos pontuação que o jogo comparado</li>
-    *           <li>valor 0 significa que os jogos possuem a mesma pontuação</li>
-    *      </ul>
-     * </p>
+     * <ul>
+    *       <li>valor positivo significa que o jogo possui mais pontuação que o jogo comparado</li>
+    *       <li>valor negativo significa que o jogo possui menos pontuação que o jogo comparado</li>
+    *       <li>valor 0 significa que os jogos possuem a mesma pontuação</li>
+    * </ul>
      */
     @Override
     public int compareTo(Jogo j) {

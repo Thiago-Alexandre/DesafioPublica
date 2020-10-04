@@ -6,27 +6,31 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
  
     <ui:define name="conteudo">
-        <section>
+        <section class="modulo">
             <h:form id="formNovoJogo">
                 <h2>Informações do Jogo:</h2>
-                <h:panelGrid columns="1">
+                <p:panelGrid columns="2" layout="grid">
                     <p:outputLabel value="Data e Hora:" for="data"/>
                     <p:calendar id="data" value="#{beanJogo.jogo.data}" pattern="yyyy-MM-dd HH:mm:ss" timeZone="GMT-3" mask="true" maxdate="#{beanJogo.dataAtual()}">
                         <f:convertDateTime pattern="yyyy-MM-dd HH:mm:ss" timeZone="GMT-3"/>
                     </p:calendar>
-                    <p:outputLabel value="Descrição:" for="descricaoJogo"/>
-                    <p:inputTextarea id="descricaoJogo" maxlength="100" value="#{beanJogo.jogo.descricao}" 
-                            rows="3" cols="40" counter="display" counterTemplate="{0} caracteres restantes." autoResize="false"/>
-                    <h:outputText id="display"/>
+                </p:panelGrid>
+                <p:panelGrid columns="2" layout="grid">    
                     <p:outputLabel value="Placar:" for="placar"/>
-                    <p:inputText id="placar" value="#{beanJogo.jogo.placar}"/>
+                    <p:inputText id="placar" class="campo" value="#{beanJogo.jogo.placar}"/>
                     <p:outputLabel for="temporada" value="Temporada:" />
-                    <p:selectOneMenu value="#{beanJogo.idTemporada}" id="temporada" filter="true" filterMatchMode="startsWith">
+                    <p:selectOneMenu value="#{beanJogo.idTemporada}" id="temporada" class="campo" filter="true" filterMatchMode="startsWith">
                         <f:selectItem itemLabel="Selecione uma temporada" itemValue="#{0}" />
                         <f:selectItems value="#{beanTemporada.todasTemporadas()}" var="selecionada" itemLabel="#{selecionada.nome}" itemValue="#{selecionada.id}" />
                     </p:selectOneMenu>
+                </p:panelGrid>
+                <p:panelGrid columns="1" layout="grid">
+                    <p:outputLabel value="Descrição:" for="descricaoJogo"/>
+                    <p:inputTextarea id="descricaoJogo" class="campo" maxlength="250" value="#{beanJogo.jogo.descricao}" 
+                            rows="3" cols="40" counter="display" counterTemplate="{0} caracteres restantes." autoResize="false"/>
+                    <h:outputText id="display"/>
                     <p:commandButton value="Salvar" action="#{beanJogo.salvar}" process=":formNovoJogo" update=":formMessage"/>
-                </h:panelGrid>
+                </p:panelGrid>
             </h:form>
         </section>
     </ui:define>

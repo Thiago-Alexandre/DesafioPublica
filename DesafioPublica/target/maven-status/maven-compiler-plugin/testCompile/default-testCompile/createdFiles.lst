@@ -1,1 +1,7 @@
+model\JogadorTest.class
+model\TemporadaDAOTest.class
+model\JogoTest.class
+model\TemporadaTest.class
 util\JPAConnectionFactoryTest.class
+model\JogadorDAOTest.class
+model\JogoDAOTest.class
