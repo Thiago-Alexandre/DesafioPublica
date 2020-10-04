@@ -11,7 +11,8 @@ Se trata de um sistema de acompanhamento de resultados de pontuações em jogos 
 * Hibernate Validator 5.4.3;
 * PrimeFaces 7.0;
 * Banco de Dados MariaDB 10.4;
-* JUnit 4.13.
+* JUnit 4.13 para a criação de testes unitários;
+* Javadoc para a documentação do código.
 
 Para executar a aplicação, deverá ser adicionado o arquivo .war (encontrado em \DesafioPublica\target\DesafioPublica-1.0.war) em um servidor (como o Tomcat). Como este projeto foi desenvolvido localmente, será necessário possuir o banco de dados local e configurado conforme o arquivo persistence.xml. As configurações utilizadas no desenvolvimento deste projeto são:
 
